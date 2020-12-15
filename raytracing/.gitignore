@@ -1,3 +1,5 @@
 *.ppm
 a.out
 build/*.ppm
+*.gch
+*.o

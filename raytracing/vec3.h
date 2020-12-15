@@ -1,7 +1,7 @@
-#ifdef VEC3_H
+#ifndef VEC3_H
 #define VEC3_H
 
-#include <cnath>
+#include <cmath>
 #include <iostream>
 
 using std::sqrt;
@@ -35,7 +35,7 @@ class vec3 {
                         return e[i];
                 }
 
-                double& operator (int i) 
+                double& operator[](int i) 
                 {
                         return e[i];
                 }
@@ -85,7 +85,7 @@ using color     = vec3; // RGB color;
 
 inline  std::ostream& operator<<(std::ostream &out, const vec3 &v)
 {
-        return out << v.e[0] << ' ' << v.[1] << ' ' << v.e[2];
+        return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
 }
 
 inline  vec3    operator+(const vec3 &u, const vec3 &v)
