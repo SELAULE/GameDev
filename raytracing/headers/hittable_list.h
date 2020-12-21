@@ -35,7 +35,7 @@ class   hittable_list : public hittable
 };
 
 
-bool    hittable_list::hit(const ray& ray, double t_min, double t_max, hit_record record) const
+bool    hittable_list::hit(const ray& ray, double t_min, double t_max, hit_record& record) const
 {
     hit_record  temp_record;
     bool        hit_anything = false;

@@ -10,14 +10,14 @@ class sphere : public hittable
         sphere() {}
         sphere(point3 center, double r) : center(center), radius(r) {};
 
-        virtual bool hit(const ray& ray, double t_min, double t_max, hit_record record) const override;
+        virtual bool hit(const ray& ray, double t_min, double t_max, hit_record& record) const override;
 
         public:
             point3  center;
             double  radius;
 };
 
-bool    sphere::hit(const ray& ray, double t_min, double t_max, hit_record record) const
+bool    sphere::hit(const ray& ray, double t_min, double t_max, hit_record& record) const
 {
     vec3    oc = ray.origin() - center;
     auto    a = ray.direction().length_squared();
@@ -39,9 +39,11 @@ bool    sphere::hit(const ray& ray, double t_min, double t_max, hit_record recor
             return false;
     }
 
-    record.t = root;
-    record.p = ray.at(record.t);
-    vec3 outside_normal = (record.p - center)/radius;
+    record.t    = root;
+    record.p    = ray.at(record.t);
+    vec3 outside_normal = ((record.p - center) / radius);
     record.set_face_normal(ray, outside_normal);
+
+    return (true);
 }
 #endif
