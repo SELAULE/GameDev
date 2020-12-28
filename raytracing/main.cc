@@ -37,13 +37,16 @@ int     main ()
         auto    vertical = vec3(0, viewport_height, 0);
         auto    lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
 
-        // Render
+        
 
         // World
 
         hittable_list world;
         world.add(make_shared<sphere>(point3(0, 0, -1), 0.5));
         world.add(make_shared<sphere>(point3(0, -100.5, -1), 100));
+
+        // Render
+        
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
         for (int j = image_height - 1; j >= 0; --j)
