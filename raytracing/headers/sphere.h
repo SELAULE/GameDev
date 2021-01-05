@@ -41,7 +41,7 @@ bool    sphere::hit(const ray& ray, double t_min, double t_max, hit_record& reco
 
     record.t    = root;
     record.p    = ray.at(record.t);
-    vec3 outside_normal = (record.p - center) * radius;
+    vec3 outside_normal = (record.p - center) / radius;
     record.set_face_normal(ray, outside_normal);
 
     return (true);
