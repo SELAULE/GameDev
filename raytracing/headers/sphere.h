@@ -24,7 +24,7 @@ bool    sphere::hit(const ray& ray, double t_min, double t_max, hit_record& reco
     auto    half_b = dot(oc, ray.direction());
     auto    c = oc.length_squared() - radius * radius;
 
-    auto    discriminant = half_b * half_b - c*c;
+    auto    discriminant = half_b * half_b - a*c;
     if (discriminant < 0)
         return false;
     auto    sqrtd = sqrt(discriminant);
